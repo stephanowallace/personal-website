@@ -1,0 +1,1 @@
+type PictureSize = 'small' | 'medium'

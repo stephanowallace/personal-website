@@ -1,5 +1,5 @@
 import React from "react"
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { Helmet } from 'react-helmet'
 
 const GlobalStyle = createGlobalStyle`
@@ -13,6 +13,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 `
+
+const theme = {
+  primary: '#6a1b9a',
+  primaryDark: '#38006b',
+  primaryLight: '#9c4dcc'
+}
+
 export default function Layout({ children }) {
   return (
     <>
@@ -22,7 +29,9 @@ export default function Layout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></link>
       </Helmet>
       <GlobalStyle theme="purple" />
-      {children}
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
     </>
   )
 }
